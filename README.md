@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kibera Diaries
 
-## Getting Started
+Modern rebuild of the Kibera Diaries website using:
 
-First, run the development server:
+- Next.js 16 App Router
+- TypeScript
+- React 19
+- Tailwind CSS 4
+- Framer Motion
+- React Three Fiber / Three.js
+- Firebase Auth and Firestore
+- Nodemailer email delivery
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Local Setup
+
+```powershell
+npm.cmd install
+npm.cmd run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and fill in real values.
 
-## Learn More
+Firebase is used for:
 
-To learn more about Next.js, take a look at the following resources:
+- Admin authentication
+- Booking storage
+- Contact message storage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Nodemailer is used for:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Admin booking notifications
+- Guest booking confirmations
+- Admin contact notifications
+- Guest contact confirmations
 
-## Deploy on Vercel
+## Firebase Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create a Firebase project.
+2. Enable Email/Password sign-in under Authentication.
+3. Create at least one admin user.
+4. Create a Firestore database.
+5. Add the client web app keys as `NEXT_PUBLIC_FIREBASE_*`.
+6. Create a Firebase service account and add `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, and `FIREBASE_PRIVATE_KEY` for server-side writes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy To Vercel
+
+1. Push this folder to GitHub.
+2. Import the repo in Vercel.
+3. Add all environment variables from `.env.example`.
+4. Deploy.
+
+If the GitHub repo root contains a parent folder, set Vercel's Root Directory to `kibera-diaries`.
+
+## Notes
+
+The old PHP/MySQL implementation has been replaced. SQL is no longer required for runtime data.
