@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import {
   ArrowRight,
   Camera,
@@ -16,12 +17,38 @@ import {
 } from "lucide-react";
 import { BookingForm } from "@/components/booking-form";
 import { MotionSection } from "@/components/motion-section";
+import { StructuredData } from "@/components/structured-data";
 import { TourGrid } from "@/components/tour-grid";
 import { guides, impactStats, tours } from "@/lib/content";
+import {
+  createMetadata,
+  faqJsonLd,
+  homeFaqs,
+  organizationJsonLd,
+  toursJsonLd,
+  websiteJsonLd,
+} from "@/lib/seo";
+
+export const metadata: Metadata = createMetadata({
+  title: "Kibera Tours in Nairobi | Kibera Diaries",
+  description:
+    "Book authentic Kibera walking tours, private tours, culture tours, photography tours, community project visits, and music or dance experiences led by local Nairobi guides.",
+  path: "/",
+  keywords: [
+    "book Kibera tour online",
+    "Kibera tours in Nairobi Kenya",
+    "safe Kibera walking tour",
+    "ethical Kibera slum tour alternative",
+    "private Kibera tour Nairobi",
+  ],
+});
 
 export default function Home() {
   return (
     <>
+      <StructuredData
+        data={[organizationJsonLd(), websiteJsonLd(), toursJsonLd(), faqJsonLd()]}
+      />
       <section className="relative min-h-[700px] overflow-hidden bg-[#11100d] pt-20 text-white">
         <Image
           src="/images/kibera.png"
@@ -323,6 +350,36 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <MotionSection className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-800">
+            Questions
+          </p>
+
+          <h2 className="mt-3 text-4xl font-semibold tracking-normal sm:text-5xl">
+            Kibera tour questions, answered.
+          </h2>
+
+          <p className="mt-4 text-lg leading-8 text-neutral-600">
+            Helpful details for guests comparing Kibera walking tours, Nairobi
+            cultural tours, private community visits, photography routes, and
+            ethical ways to experience Kibera with local guides.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          {homeFaqs.map((faq) => (
+            <article
+              key={faq.question}
+              className="rounded-md border border-neutral-200 bg-white p-6"
+            >
+              <h3 className="text-xl font-semibold">{faq.question}</h3>
+              <p className="mt-3 leading-7 text-neutral-600">{faq.answer}</p>
+            </article>
+          ))}
+        </div>
+      </MotionSection>
 
       <MotionSection
         id="guides"

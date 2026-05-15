@@ -1,8 +1,12 @@
 import { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Privacy Policy",
-};
+  description:
+    "Privacy policy for Kibera Diaries booking, contact, and tour inquiry data.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

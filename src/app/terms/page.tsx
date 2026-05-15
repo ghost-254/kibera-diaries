@@ -1,8 +1,12 @@
 import { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Terms of Service",
-};
+  description:
+    "Terms of service for Kibera Diaries bookings, visitor conduct, payments, changes, and tour requests.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (
