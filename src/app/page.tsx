@@ -24,17 +24,26 @@ import {
   createMetadata,
   faqJsonLd,
   homeFaqs,
+  kiberaPlaceJsonLd,
   organizationJsonLd,
   toursJsonLd,
   websiteJsonLd,
 } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "Kibera Tours in Nairobi | Kibera Diaries",
+  title: "Kibera, Nairobi Tours and Local Stories | Kibera Diaries",
   description:
-    "Book authentic Kibera walking tours, private tours, culture tours, photography tours, community project visits, and music or dance experiences led by local Nairobi guides.",
+    "Discover Kibera in Nairobi, Kenya with resident-led local stories, walking tours, culture, photography, community projects, music, dance, and ethical travel experiences.",
   path: "/",
   keywords: [
+    "Kibera",
+    "Kibera Kenya",
+    "Kibera Nairobi",
+    "Kibera local stories",
+    "Kibera community",
+    "kibera tour",
+    "experience kibera",
+    "kibera slums tour",
     "book Kibera tour online",
     "Kibera tours in Nairobi Kenya",
     "safe Kibera walking tour",
@@ -47,7 +56,13 @@ export default function Home() {
   return (
     <>
       <StructuredData
-        data={[organizationJsonLd(), websiteJsonLd(), toursJsonLd(), faqJsonLd()]}
+        data={[
+          organizationJsonLd(),
+          websiteJsonLd(),
+          kiberaPlaceJsonLd(),
+          toursJsonLd(),
+          faqJsonLd(),
+        ]}
       />
       <section className="relative min-h-[700px] overflow-hidden bg-[#11100d] pt-20 text-white">
         <Image
@@ -273,6 +288,56 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <MotionSection className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:px-10">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-800">
+            Kibera
+          </p>
+
+          <h2 className="mt-3 text-4xl font-semibold tracking-normal sm:text-5xl">
+            Kibera, Nairobi, Kenya.
+          </h2>
+        </div>
+
+        <div className="grid gap-6 text-lg leading-8 text-neutral-600">
+          <p>
+            Kibera is one of Nairobi&apos;s most recognized communities, shaped by
+            local families, small businesses, markets, artists, youth programs,
+            schools, places of worship, and community projects. It is a real
+            neighborhood with daily life, creativity, challenges, and leadership
+            that can only be understood well through the people who live there.
+          </p>
+
+          <p>
+            Kibera Diaries exists to help visitors find Kibera through resident
+            stories: walking routes, culture, photography, music, dance, local
+            initiatives, and careful conversations that give context beyond the
+            headlines. If someone is searching for Kibera, Kibera tour,
+            experience Kibera, Kibera Kenya, Kibera Nairobi, Kibera community,
+            Kibera slums tour, or what to do in Kibera, this is a local place to
+            start.
+          </p>
+
+          <div className="grid gap-3 text-base font-medium text-neutral-800 sm:grid-cols-2">
+            {[
+              "Kibera local guides",
+              "Kibera community stories",
+              "Kibera culture and art",
+              "Kibera walking routes",
+              "Kibera photography experiences",
+              "Kibera music and dance",
+            ].map((item) => (
+              <span
+                key={item}
+                className="rounded-md border border-neutral-200 bg-white px-4 py-3"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </MotionSection>
 
       <MotionSection
         id="tours"

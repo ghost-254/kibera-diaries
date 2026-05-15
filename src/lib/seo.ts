@@ -100,6 +100,33 @@ const generatedSearchPhrases = services.flatMap((service) => {
 });
 
 export const SEO_KEYWORDS = unique([
+  "Kibera",
+  "Kibera Kenya",
+  "Kibera Nairobi",
+  "Kibera Nairobi Kenya",
+  "Kibera Africa",
+  "Kibera location",
+  "Kibera community",
+  "Kibera culture",
+  "Kibera stories",
+  "Kibera daily life",
+  "Kibera local life",
+  "Kibera travel",
+  "Kibera visit",
+  "visit Kibera",
+  "Kibera guide",
+  "Kibera map",
+  "Kibera photos",
+  "Kibera history",
+  "Kibera people",
+  "kibera tour",
+  "experience kibera",
+  "kibera slums tour",
+  "Kibera slums tour",
+  "Kibera slum tours",
+  "Kibera slums walking tour",
+  "experience Kibera Nairobi",
+  "experience Kibera Kenya",
   "Kibera Diaries",
   "Kibera Diaries tours",
   "Kibera tours Nairobi",
@@ -213,6 +240,16 @@ export function createMetadata({
 
 export const homeFaqs = [
   {
+    question: "Where is Kibera?",
+    answer:
+      "Kibera is in Nairobi, Kenya, southwest of the city center. It is one of Nairobi's best-known communities and is home to residents, markets, artists, schools, workshops, faith communities, local businesses, and community-led projects.",
+  },
+  {
+    question: "What is Kibera known for?",
+    answer:
+      "Kibera is known for its strong community life, creativity, local entrepreneurship, music, art, sport, youth programs, and everyday resilience. Kibera Diaries helps visitors understand Kibera through resident-led stories rather than outside assumptions.",
+  },
+  {
     question: "What is the best Kibera tour in Nairobi?",
     answer:
       "The best Kibera tour is local-led, respectful, and clear about where your money goes. Kibera Diaries offers walking, culture, photography, music, dance, and community project experiences guided by residents.",
@@ -230,7 +267,7 @@ export const homeFaqs = [
   {
     question: "Do you offer ethical Kibera slum tours?",
     answer:
-      "People often search for a Kibera slum tour, but Kibera Diaries focuses on ethical, resident-led community tourism. The tour centers dignity, consent, accurate context, and direct value for local guides and partners.",
+      "People often search for a Kibera slum tour or Kibera slums tour, but Kibera Diaries focuses on ethical, resident-led community tourism. The tour centers dignity, consent, accurate context, and direct value for local guides and partners.",
   },
   {
     question: "How much does a Kibera tour cost?",
@@ -311,6 +348,30 @@ export function toursJsonLd() {
         },
       },
     })),
+  };
+}
+
+export function kiberaPlaceJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "@id": `${SITE_URL}/#kibera`,
+    name: "Kibera",
+    description:
+      "Kibera is a community in Nairobi, Kenya known for local creativity, markets, community projects, art, music, daily life, and resident-led stories.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kibera",
+      addressRegion: "Nairobi County",
+      addressCountry: "KE",
+    },
+    containedInPlace: {
+      "@type": "City",
+      name: "Nairobi",
+    },
+    subjectOf: {
+      "@id": `${SITE_URL}/#website`,
+    },
   };
 }
 
