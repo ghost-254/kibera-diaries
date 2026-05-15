@@ -29,8 +29,14 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   icons: {
-    icon: "/images/favicon.jpg",
-    shortcut: "/images/favicon.jpg",
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "256x256",
+        type: "image/x-icon",
+      },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/images/logo.png",
   },
   manifest: "/manifest.webmanifest",
